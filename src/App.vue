@@ -6,14 +6,15 @@
       :initData="slickData"
     >
     </CustomSlick>
-    <div class="youtube-video">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/hp5oF2WMfGM?si=rsuoWY4sCI_5mgUy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="youtube-video" ref="youtube">
+
     </div>
   </div>
 </template>
 
 <script>
 import CustomSlick from './CustomSlick.vue'
+import YoutubeControl from './modules/YoutubePlayer';
 
 export default {
   name: 'App',
@@ -21,7 +22,13 @@ export default {
     CustomSlick
   },
   mounted() {
-    console.log(this.$refs.slickControl)
+    const youtubeEl = this.$refs.youtube;
+    const videoId = 'hp5oF2WMfGM';
+
+    const youtubeControl = new YoutubeControl(youtubeEl, videoId);
+    youtubeControl.onYouTubeIframeAPIReady();
+
+    console.log('테스트')
   },
   data() {
     const settings = {

@@ -8,6 +8,9 @@ export default {
     components: {
         VueSlickCarousel
     },
+    mounted() {
+        
+    },
     data() {
         const status = {
             active: 0,
