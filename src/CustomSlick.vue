@@ -41,11 +41,11 @@ export default {
     },
 }
 </script>
-<template #prevArrow>
+<template>
     <div class="slickSlide-wrap">
         <VueSlickCarousel
             ref="slick"
-            :settings="settings"
+            v-bind="settings"
             @init="initSlick"           
             @afterChange="afterChange"
         >
